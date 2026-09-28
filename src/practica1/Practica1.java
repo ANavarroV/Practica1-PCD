@@ -4,6 +4,8 @@
  */
 package practica1;
 
+import java.util.Random;
+
 /**
  *
  * @author ANTONIO
@@ -14,7 +16,31 @@ public class Practica1 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+
+        Cola cola = new Cola(4);
+        Random random = new Random();
+
+        for (int i = 0; i < 10; i++) {
+
+            int opcion = random.nextInt(2);
+
+            try {
+
+                if (opcion == 0) {
+                    Object elemento = cola.desacola();
+                    System.out.println("Iteracion " + i + ": se extrae " + elemento);
+
+                } else {
+                    cola.acola(i);
+                    System.out.println("Iteracion " + i + ": se inserta " + i);
+                    
+                }
+
+            } catch (Exception e) {
+                System.out.println("Iteracion " + i + ": " + e.getMessage());
+            }
+        }
+
     }
-    
+
 }
